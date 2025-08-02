@@ -41,30 +41,30 @@ const IPChecker: React.FC = () => {
   };
 
   return (
-    <section id="ip" className="py-16 px-4 sm:px-6 lg:px-8 bg-black/20">
+    <section id="ip" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-black/20">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-12">
-          <Globe className="h-16 w-16 text-blue-400 mx-auto mb-6" />
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <Globe className="h-12 w-12 sm:h-16 sm:w-16 text-blue-400 mx-auto mb-4 sm:mb-6" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
             Your IP Information
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 px-2">
             Check your IP address and location information
           </p>
         </div>
 
-        <div className="bg-gray-800 border border-gray-600 rounded-lg p-8">
-          <div className="text-center mb-8">
+        <div className="bg-gray-800 border border-gray-600 rounded-lg p-4 sm:p-6 lg:p-8">
+          <div className="text-center mb-6 sm:mb-8">
             <button
               onClick={checkCurrentIP}
               disabled={isLoading}
-              className="px-6 py-2 bg-gradient-to-r from-green-400 to-blue-400 text-black font-semibold rounded-lg hover:from-green-300 hover:to-blue-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 mx-auto"
+              className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-400 to-blue-400 text-black font-semibold rounded-lg hover:from-green-300 hover:to-blue-300 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 mx-auto text-sm sm:text-base"
             >
               {isLoading ? (
                 <LoadingSpinner size="sm" color="white" />
               ) : (
                 <>
-                  <Wifi className="h-6 w-6 text-blue-400" />
+                  <Wifi className="h-5 w-5 sm:h-6 sm:w-6 text-blue-400" />
                   <span>Check My IP</span>
                 </>
               )}
@@ -81,56 +81,56 @@ const IPChecker: React.FC = () => {
           )}
 
           {ipInfo && (
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {/* IP Address */}
-              <div className="bg-gray-700 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-white">IP Address</h3>
-                  <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
+              <div className="bg-gray-700 rounded-lg p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 space-y-2 sm:space-y-0">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">IP Address</h3>
+                  <div className={`px-3 py-1 rounded-full text-xs sm:text-sm font-semibold w-fit ${
                     ipInfo.isBlacklisted ? 'bg-red-400/20 text-red-400' : 'bg-green-400/20 text-green-400'
                   }`}>
                     {ipInfo.isBlacklisted ? 'Blacklisted' : 'Clean'}
                   </div>
                 </div>
-                <p className="text-2xl font-mono text-blue-400">{ipInfo.ip}</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-mono text-blue-400 break-all">{ipInfo.ip}</p>
               </div>
 
               {/* Location Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-700 rounded-lg p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <MapPin className="h-5 w-5 text-green-400" />
-                    <h3 className="text-lg font-semibold text-white">Location</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-gray-700 rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
+                    <h3 className="text-base sm:text-lg font-semibold text-white">Location</h3>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">City:</span> {ipInfo.city}
                     </p>
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">Region:</span> {ipInfo.region}
                     </p>
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">Country:</span> {ipInfo.country}
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-gray-700 rounded-lg p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <Shield className="h-5 w-5 text-blue-400" />
-                    <h3 className="text-lg font-semibold text-white">Network</h3>
+                <div className="bg-gray-700 rounded-lg p-4 sm:p-6">
+                  <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+                    <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" />
+                    <h3 className="text-base sm:text-lg font-semibold text-white">Network</h3>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">ISP:</span> {ipInfo.isp}
                     </p>
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">Risk Score:</span> 
                       <span className={`ml-2 font-semibold ${getRiskColor(ipInfo.riskScore)}`}>
                         {ipInfo.riskScore}%
                       </span>
                     </p>
-                    <p className="text-gray-300">
+                    <p className="text-sm sm:text-base text-gray-300">
                       <span className="text-gray-400">Status:</span> 
                       <span className={`ml-2 font-semibold ${getRiskColor(ipInfo.riskScore)}`}>
                         {getRiskLevel(ipInfo.riskScore)}
@@ -141,18 +141,18 @@ const IPChecker: React.FC = () => {
               </div>
 
               {/* Risk Assessment */}
-              <div className="bg-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-white mb-4">Risk Assessment</h3>
+              <div className="bg-gray-700 rounded-lg p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Risk Assessment</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-300">Blacklist Status</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+                    <span className="text-sm sm:text-base text-gray-300">Blacklist Status</span>
                     <div className="flex items-center space-x-2">
                       {ipInfo.isBlacklisted ? (
-                        <AlertTriangle className="h-5 w-5 text-red-400" />
+                        <AlertTriangle className="h-4 w-4 sm:h-5 sm:w-5 text-red-400" />
                       ) : (
-                        <CheckCircle className="h-5 w-5 text-green-400" />
+                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400" />
                       )}
-                      <span className={ipInfo.isBlacklisted ? 'text-red-400' : 'text-green-400'}>
+                      <span className={`text-sm sm:text-base ${ipInfo.isBlacklisted ? 'text-red-400' : 'text-green-400'}`}>
                         {ipInfo.isBlacklisted ? 'Blacklisted' : 'Clean'}
                       </span>
                     </div>
@@ -168,7 +168,7 @@ const IPChecker: React.FC = () => {
                     ></div>
                   </div>
                   
-                  <p className="text-sm text-gray-400">
+                  <p className="text-xs sm:text-sm text-gray-400">
                     Risk score based on network reputation and blacklist status
                   </p>
                 </div>
